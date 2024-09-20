@@ -62,7 +62,7 @@ function MyPage() {
           size="small"
           sx={{ backgroundColor: "white", color: "black" }}
           onClick={() => setStep(step + 1)}
-          // Se for o step 2, o botão é desativado
+          // Se for o step 3, o botão é desativado
           disabled={step === 3}
         >
           Continuar
