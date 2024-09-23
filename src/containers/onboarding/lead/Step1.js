@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <Grid container spacing={2} sx={"column"}>
-      <Grid sx={{}}>
+      <Grid sx={{}} width={"100%"}>
         <Grid
           xs={12}
           maxHeight={"100%"}
@@ -40,10 +40,12 @@ export default function Home() {
             loop
             autoplay
             sx={{
-              height: {
-                xs: 200, // Mobile
-                sm: 100, // Pequenas (até 768px)
-                md: 100, // Médias (tablet e maiores)
+              [theme.breakpoints.up("md")]: {
+                height: {
+                  xs: 200, // Mobile
+                  sm: 100, // Pequenas (até 768px)
+                  md: 100, // Médias (tablet e maiores)
+                },
               },
             }}
           />
@@ -60,6 +62,10 @@ export default function Home() {
             fontWeight: "regular",
             textAlign: "center",
             flexDirection: "column",
+            "@media (min-width: 768px)": {
+              backgroundColor: "#5D2E9A", // Fundo roxo em desktop
+              pt: 4,
+            },
           }}
         >
           <Typography
@@ -69,7 +75,6 @@ export default function Home() {
               "@media (min-width: 768px)": {
                 whiteSpace: "nowrap", // Impede quebra de linha
                 maxWidth: "100%", // Garante que não ultrapasse 100%
-               
               },
             }}
           >

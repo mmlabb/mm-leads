@@ -30,13 +30,7 @@ export default function Home() {
         alignItems="center"
         sx={{ justifyContent: "space-between" }}
       >
-        <DotLottieReact
-          data={robot}
-          width={200}
-          autoResizeCanvas
-          loop
-          autoplay
-        />
+        <DotLottieReact data={robot} width={200} loop autoplay />
       </Grid>
       <Grid
         xs={12}

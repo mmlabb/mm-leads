@@ -35,6 +35,7 @@ function MyPage() {
         justifyContent="center"
         flexDirection="row"
         alignItems="center"
+        className="grid-btn"
         sx={{
           width: "100%",
           mt: 2,
@@ -43,7 +44,6 @@ function MyPage() {
             pb: 5,
           },
         }}
-        className="grid-btn"
       >
         {/* O botão Voltar só aparece se o passo for maior que 0 */}
         {step > 1 && (

@@ -19,14 +19,16 @@ export default function LayoutOnboarding({ children }) {
       {" "}
       {/* Define o tamanho máximo para um app web */}
       <Box
+        className="box-pai"
         maxWidth="sm"
         sx={{
           flexGrow: 1,
 
           [theme.breakpoints.up("md")]: {
             // Aplica no desktop (md em diante)
-
-            borderRadius: "8px",
+            mt: 19,
+            mb: 19,
+            borderRadius: 4,
             bgcolor: "#000000", // Cor de fundo para desktop
             mx: "auto", // Centraliza horizontalmente
             justifyContent: "center",
