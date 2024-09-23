@@ -16,7 +16,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #000000; /* mudar para black */
+  background: #0F0F19; /* mudar para black */
   color: white;
 }
 
@@ -65,6 +65,10 @@ a {
 
 .box-3 {
   padding-top: 0px !important;
+}
+
+.mui-22594q-MuiContainer-root {
+  max-width: 100% !important;
 }
 
 @media (prefers-color-scheme: dark) {

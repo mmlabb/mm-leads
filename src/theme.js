@@ -25,7 +25,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-    color: '#ffffff', // Define a cor de texto para todas as variantes de tipografia
+    color: "#ffffff", // Define a cor de texto para todas as variantes de tipografia
   },
   components: {
     MuiPaper: {

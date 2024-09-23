@@ -9,13 +9,32 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { Chip, Container } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export default function LayoutOnboarding({ children }) {
+  const theme = useTheme();
+
   return (
-    <Container maxWidth="xs" sx={{ p: 0, height: "100vh" }}>
+    <Container sx={{ p: 0, height: "100vh", width: "100%" }}>
       {" "}
       {/* Define o tamanho máximo para um app web */}
-      <Box sx={{ flexGrow: 1 }}>
+      <Box
+        maxWidth="sm"
+        sx={{
+          flexGrow: 1,
+
+          [theme.breakpoints.up("md")]: {
+            // Aplica no desktop (md em diante)
+
+            borderRadius: "8px",
+            bgcolor: "#000000", // Cor de fundo para desktop
+            mx: "auto", // Centraliza horizontalmente
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center", // Centraliza o texto
+          },
+        }}
+      >
         {/* AppBar */}
         <AppBar
           position="static"
