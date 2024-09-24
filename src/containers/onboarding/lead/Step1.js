@@ -1,5 +1,5 @@
 "use client";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import robot from "@/assets/lottie/robot.json";
@@ -27,28 +27,26 @@ export default function Home() {
             Olá, é um prazer ter você por aqui!
           </Typography>
         </Grid>
-        <Grid
-          xs={12}
-          display="flex"
-          alignItems="center"
-          sx={{ justifyContent: "space-between" }}
-        >
-          <DotLottieReact
-            data={robot}
-            width={200}
-            autoResizeCanvas={false}
-            loop
-            autoplay
+        <Grid xs={12} display="flex" alignItems="center" justifyContent={"center"}>
+          <Box
             sx={{
-              [theme.breakpoints.up("md")]: {
-                height: {
-                  xs: 200, // Mobile
-                  sm: 100, // Pequenas (até 768px)
-                  md: 100, // Médias (tablet e maiores)
-                },
+              justifyContent: "center",
+              alignItems: "center",
+              height: {
+                xs: 300, // Tamanho em telas pequenas (mobile)
+                sm: 300, // Tamanho em tablets
+                md: 300, // Tamanho em telas grandes (desktop)
               },
             }}
-          />
+          >
+            <DotLottieReact
+              data={robot}
+              width={200}
+              autoResizeCanvas={false}
+              loop
+              autoplay
+            />
+          </Box>
         </Grid>
         <Grid
           xs={12}

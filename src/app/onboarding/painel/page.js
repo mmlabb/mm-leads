@@ -36,9 +36,15 @@ function MyPage() {
         justifyContent="center"
         flexDirection="row"
         alignItems="center"
-        sx={{ width: "100%", mt: 2 }}
         className="grid-btn"
-        fullWidth
+        sx={{
+          width: "100%",
+          mt: 2,
+          "@media (min-width: 768px)": {
+            backgroundColor: "#5D2E9A", // Fundo roxo em desktop
+            pb: 5,
+          },
+        }}
       >
         {/* Botão "Voltar" só aparece se o step for maior que 1*/}
         {step > 1 && (

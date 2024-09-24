@@ -2,7 +2,7 @@
 import { Button, Grid, LinearProgress } from "@mui/material";
 import Step1 from "@/containers/onboarding/lead/Step1";
 import Step2 from "@/containers/onboarding/lead/Step2";
-import Step3 from "@/containers/onboarding/lead/Step3";
+
 import { useState } from "react";
 
 function MyPage() {
@@ -13,7 +13,7 @@ function MyPage() {
       {/* Barra de progresso */}
       <LinearProgress
         variant="determinate"
-        value={(100 / 3) * step}
+        value={(100 / 2) * step}
         sx={{
           height: 8, // Ajusta a altura da barra
           backgroundColor: "#D3D3D3", // Cor de fundo da barra
@@ -27,7 +27,7 @@ function MyPage() {
       />
       {step === 1 && <Step1 />}
       {step === 2 && <Step2 />}
-      {step === 3 && <Step3 />}
+      
 
       <Grid
         item
