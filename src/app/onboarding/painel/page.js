@@ -52,7 +52,16 @@ function MyPage() {
             variant="outlined"
             fullWidth
             size="small"
-            sx={{ backgroundColor: "black", color: "white" }}
+            sx={{
+              backgroundColor: "black",
+              color: "white",
+              ["@media (min-width: 768px)"]: {
+                backgroundColor: "#5D2E9A", // Muda a cor no desktop
+                "&:hover": {
+                  backgroundColor: "#483D8B", // Cor ao passar o mouse no desktop
+                },
+              },
+            }}
             className="btn-v"
             onClick={() => setStep(step - 1)}
           >

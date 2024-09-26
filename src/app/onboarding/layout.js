@@ -40,7 +40,13 @@ export default function LayoutOnboarding({ children }) {
         {/* AppBar */}
         <AppBar
           position="static"
-          sx={{ backgroundColor: "#000000", color: "#ffffff" }}
+          sx={{
+            backgroundColor: "#0F0F19",
+            color: "#ffffff",
+            [theme.breakpoints.up("md")]: {
+              backgroundColor: "#000000", // Cor específica para desktop
+            },
+          }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
