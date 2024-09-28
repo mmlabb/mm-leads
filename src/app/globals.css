@@ -69,9 +69,14 @@ a {
   max-width: 100% !important;
 }
 
+
+
 @media (min-width: 768px) {
   .MuiAppBar-root {
     border-radius: 24px !important;
+  }
+  .box-chat {
+    margin: 0 !important;
   }
 }
 
