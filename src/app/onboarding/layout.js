@@ -64,7 +64,7 @@ export default function LayoutOnboarding({ children }) {
             <Chip
               label="Pular"
               component="a"
-              href="#http://localhost:3000/chat"
+              href="/chat"
               clickable
               sx={{
                 backgroundColor: "#201034",
