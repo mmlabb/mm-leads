@@ -11,6 +11,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Chip, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
+
+
 export default function LayoutOnboarding({ children }) {
   const theme = useTheme();
 
@@ -62,7 +64,7 @@ export default function LayoutOnboarding({ children }) {
             <Chip
               label="Pular"
               component="a"
-              href="#basic-chip"
+              href="#http://localhost:3000/chat"
               clickable
               sx={{
                 backgroundColor: "#201034",

@@ -1,9 +1,5 @@
 "use client";
 import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import HelpIcon from "@mui/icons-material/Help";
 import { Chip, Container, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Typography } from "@mui/material";
@@ -12,20 +8,24 @@ export default function LayoutChat({ children }) {
   const theme = useTheme();
 
   return (
-    <Container sx={{ p: 0,  width: "100%" }}>
+    <Container
+      className="container-pai-chat"
+      maxWidth="xxl"
+      sx={{ p: 0, m: 0 }}
+    >
       {/* Define o tamanho máximo para um app web */}
       <Grid
         container
         spacing={2}
-        sx={{ width: "100%", justifyContent: "center" }}
+        sx={{ width: "100%", m: 0, p: 0, justifyContent: "center" }}
       >
         <Grid
           size={8}
           className="box-chat"
-          maxWidth="sm"
+          maxWidth="xl"
           sx={{
             flexGrow: 1,
-
+            height: "100%",
             [theme.breakpoints.up("md")]: {
               // Aplica no desktop (md em diante)
               margin: 0,
@@ -38,63 +38,29 @@ export default function LayoutChat({ children }) {
             },
           }}
         >
-          {/* AppBar */}
-          <AppBar
-            position="static"
+          <Grid
             sx={{
-              backgroundColor: "#0F0F19",
-              color: "#ffffff",
-              [theme.breakpoints.up("md")]: {
-                backgroundColor: "#000000", // Cor específica para desktop
-              },
+              display: "flex",
+              justifyContent: "space-between",
+              height: "100%",
             }}
           >
-            <Toolbar sx={{ justifyContent: "space-between" }}>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-              >
-                <HelpIcon />
-              </IconButton>
-
-              <Chip
-                label="Pular"
-                component="a"
-                href="#basic-chip"
-                clickable
-                sx={{
-                  backgroundColor: "#201034",
-                  color: "#ffffff",
-                  "&:hover": {
-                    backgroundColor: "#2B1646", // Cor de fundo ao passar o mouse
-                  },
-                }}
-              />
-            </Toolbar>
-          </AppBar>
-
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             {children}
-          </Box>
+          </Grid>
         </Grid>
         <Grid
-          size={4}
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
             backgroundColor: "#ffff",
-            borderRadius: "12px",
             pt: 1,
             pb: 1,
             color: "#000000",
             borderBottomLeftRadius: "12px",
-            
+            borderTopLeftRadius: "12px",
           }}
         >
-          <Typography variant="h1" component="h2">
+          <Typography sx={{ p: 2 }} variant="h1" component="h3">
             Categoria
           </Typography>
         </Grid>

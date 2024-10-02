@@ -43,7 +43,7 @@ a {
 }
 
 .btn-v {
-  width: 152px;
+  width: 152px !important;
   height: 48px;
   text-transform: none !important;
   border-radius: 24px !important;
@@ -61,6 +61,10 @@ a {
   color: black !important;
 }
 
+.btn-ct {
+  width: 152px !important;
+}
+
 .box-3 {
   padding-top: 0px !important;
 }
@@ -69,6 +73,9 @@ a {
   max-width: 100% !important;
 }
 
+.container-pai-chat{
+  padding: 0% !important;
+}
 
 
 @media (min-width: 768px) {

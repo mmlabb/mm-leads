@@ -2,8 +2,8 @@
 import { Button, Grid, LinearProgress } from "@mui/material";
 import Step1 from "@/containers/onboarding/lead/Step1";
 import Step2 from "@/containers/onboarding/lead/Step2";
-
 import { useState } from "react";
+import Link from "next/link"; // Importa o componente Link
 
 function MyPage() {
   const [step, setStep] = useState(1);
@@ -27,7 +27,6 @@ function MyPage() {
       />
       {step === 1 && <Step1 />}
       {step === 2 && <Step2 />}
-      
 
       <Grid
         item
@@ -45,20 +44,23 @@ function MyPage() {
           },
         }}
       >
-        {/* O botão Voltar só aparece se o passo for maior que 0 */}
+        {/* O botão Voltar só aparece se o passo for maior que 1 */}
         {step > 1 && (
           <Button
             variant="outlined"
             fullWidth
             size="small"
-            sx={{ backgroundColor: "black", color: "white", mr: 1,
-              ['@media (min-width: 768px)']: {
+            sx={{
+              backgroundColor: "black",
+              color: "white",
+              mr: 1,
+              ["@media (min-width: 768px)"]: {
                 backgroundColor: "#5D2E9A", // Muda a cor no desktop
-                '&:hover': {
+                "&:hover": {
                   backgroundColor: "#483D8B", // Cor ao passar o mouse no desktop
                 },
               },
-             }}
+            }}
             className="btn-v"
             onClick={() => setStep(step - 1)}
           >
@@ -66,19 +68,49 @@ function MyPage() {
           </Button>
         )}
 
-        {/* O botão Continuar sempre aparece, mas com comportamento ajustado */}
-        <Button
-          className="btn-c"
-          fullWidth
-          variant="contained"
-          size="small"
-          sx={{ backgroundColor: "white", color: "black", mr: 1 }}
-          onClick={() => setStep(step + 1)}
-          // If it's step 2, the button is disabled
-          disabled={step === 3}
-        >
-          Continuar
-        </Button>
+        {/* Um único botão Continuar com comportamento condicional */}
+        {step < 2 ? (
+          <Button
+            className="btn-c"
+            fullWidth
+            variant="contained"
+            size="large"
+            sx={{
+              backgroundColor: "white",
+              color: "black",
+              ["@media (min-width: 768px)"]: {
+                backgroundColor: "#5D2E9A", // Muda a cor no desktop
+                "&:hover": {
+                  backgroundColor: "#483D8B", // Cor ao passar o mouse no desktop
+                },
+              },
+            }}
+            onClick={() => setStep(step + 1)}
+          >
+            Continuar
+          </Button>
+        ) : (
+          <Link href="/chat" passHref>
+            <Button
+              className="btn-c btn-ct"
+              fullWidth
+              variant="contained"
+              size="small"
+              sx={{
+                backgroundColor: "white",
+                color: "black",
+                ["@media (min-width: 768px)"]: {
+                  backgroundColor: "#5D2E9A", // Muda a cor no desktop
+                  "&:hover": {
+                    backgroundColor: "#483D8B", // Cor ao passar o mouse no desktop
+                  },
+                },
+              }}
+            >
+              Continuar
+            </Button>
+          </Link>
+        )}
       </Grid>
     </div>
   );
