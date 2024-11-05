@@ -48,11 +48,17 @@ export default function LayoutChat({ children }) {
             {children}
           </Grid>
         </Grid>
+
         <Grid
+          direction="column"
+          spacing={2}
           sx={{
             display: { xs: "none", md: "flex" },
+            width: "492px",
             alignItems: "center",
-            backgroundColor: "#ffff",
+            backgroundImage: `url('/img/GradientBoot.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             pt: 1,
             pb: 1,
             color: "#000000",
@@ -60,9 +66,62 @@ export default function LayoutChat({ children }) {
             borderTopLeftRadius: "12px",
           }}
         >
-          <Typography sx={{ p: 2 }} variant="h1" component="h3">
-            Categoria
-          </Typography>
+          <Grid
+            sx={{
+              display: { xs: "none", md: "flex" },
+              width: "444px",
+              justifyContent: "center",
+              flexDirection: "column",
+              backgroundColor: "#F7F0FF",
+              borderRadius: "18px",
+              pt: 1,
+              pb: 1,
+              color: "#5D2E9A",
+              backdropFilter: "blur(147.9px)", // Aplica o blur
+              boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)", // Sombra
+            }}
+          >
+            <Typography
+              sx={{ pe: 1, fontFamily: "Inter, sans-serif", fontWeight: "bold" }}
+              variant="h4"
+              component="h4"
+            >
+              Acelere suas vendas
+            </Typography>
+
+            <Typography
+              sx={{ pe:2 ,maxWidth: "80%" }}
+              variant="body1"
+            >
+              Ganhe tempo com a tecnologia trabalhando a seu favor
+            </Typography>
+          </Grid>
+          <Grid>
+            <Typography sx={{ p: 2 }} variant="h3" component="h3">
+              Categoria
+            </Typography>
+          </Grid>
+          <Grid>
+            <Typography sx={{ p: 2 }} variant="h3" component="h3">
+              Categoria
+            </Typography>
+          </Grid>
+          <Grid>
+            <Typography sx={{ p: 2 }} variant="h3" component="h3">
+              Categoria
+            </Typography>
+          </Grid>
+
+          <Grid container item spacing={2}>
+            <Grid item xs={6}>
+              <Typography variant="h6">Subtítulo 5</Typography>
+              <Typography>Este é o texto do bloco 5.</Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h6">Subtítulo 6</Typography>
+              <Typography>Este é o texto do bloco 6.</Typography>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
