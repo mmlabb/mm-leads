@@ -50,7 +50,7 @@ export default function LayoutChat({ children }) {
         </Grid>
         <Grid
           sx={{
-            display: { xs: "none", md: "flex" },
+            display: { xs: "none", md: "flex", md: "none" },
             alignItems: "center",
             backgroundColor: "#ffff",
             pt: 1,
