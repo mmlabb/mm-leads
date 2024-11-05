@@ -53,7 +53,7 @@ export default function LayoutChat({ children }) {
           direction="column"
           spacing={2}
           sx={{
-            display: { xs: "none", md: "flex" },
+            display: "none",
             width: "492px",
             alignItems: "center",
             backgroundImage: `url('/img/GradientBoot.png')`,
