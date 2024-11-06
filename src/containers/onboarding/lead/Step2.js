@@ -2,8 +2,8 @@
 import { Step, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import robot from "@/assets/lottie/robot.json";
-import { useState } from "react";
+import animation from "@/assets/lottie/animation.json";
+
 import { Box } from "@mui/material";
 
 export default function Home() {
@@ -39,7 +39,7 @@ export default function Home() {
             }}
           >
             <DotLottieReact
-              data={robot}
+              data={animation}
               width={200}
               autoResizeCanvas={false}
               loop
