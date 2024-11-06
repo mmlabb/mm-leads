@@ -54,7 +54,6 @@ export default function LayoutChat({ children }) {
           container
           direction="column"
           sx={{
-            display: "none",
             width: "492px",
             alignItems: "center",
             justifyContent: "space-between",
