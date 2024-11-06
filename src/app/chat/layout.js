@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import { Chip, Container, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Typography } from "@mui/material";
+import { RocketLaunch } from "@mui/icons-material";
 
 export default function LayoutChat({ children }) {
   const theme = useTheme();
@@ -16,13 +17,12 @@ export default function LayoutChat({ children }) {
       {/* Define o tamanho máximo para um app web */}
       <Grid
         container
-        spacing={2}
+        spacing={1}
         sx={{ width: "100%", m: 0, p: 0, justifyContent: "center" }}
       >
         <Grid
           size={8}
           className="box-chat"
-          maxWidth="xl"
           sx={{
             flexGrow: 1,
             height: "100%",
@@ -50,76 +50,179 @@ export default function LayoutChat({ children }) {
         </Grid>
 
         <Grid
+          size={4}
+          container
           direction="column"
-          spacing={2}
           sx={{
             display: { xs: "none", md: "flex" },
             width: "492px",
             alignItems: "center",
+            justifyContent: "space-between",
             backgroundImage: `url('/img/GradientBoot.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            gap: "24px",
             pt: 1,
             pb: 1,
+            mt: 5,
+            mb: 5,
             color: "#000000",
-            borderBottomLeftRadius: "12px",
-            borderTopLeftRadius: "12px",
+            borderBottomLeftRadius: "18px",
+            borderTopLeftRadius: "18px",
           }}
         >
           <Grid
             sx={{
               display: { xs: "none", md: "flex" },
               width: "444px",
+              p: "24px",
+              mt: "24px",
               justifyContent: "center",
               flexDirection: "column",
               backgroundColor: "#F7F0FF",
               borderRadius: "18px",
-              pt: 1,
-              pb: 1,
               color: "#5D2E9A",
               backdropFilter: "blur(147.9px)", // Aplica o blur
               boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)", // Sombra
             }}
           >
             <Typography
-              sx={{ pe: 1, fontFamily: "Inter, sans-serif", fontWeight: "bold" }}
+              sx={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: "bold",
+                display: "flex",
+
+                alignItems: "center",
+              }}
               variant="h4"
               component="h4"
             >
-              Acelere suas vendas
+              Acelere suas vendas <img src="/img/icon-rocket.png" />
             </Typography>
 
-            <Typography
-              sx={{ pe:2 ,maxWidth: "80%" }}
-              variant="body1"
-            >
+            <Typography sx={{ maxWidth: "80%" }} variant="body1">
               Ganhe tempo com a tecnologia trabalhando a seu favor
             </Typography>
           </Grid>
-          <Grid>
-            <Typography sx={{ p: 2 }} variant="h3" component="h3">
-              Categoria
+          <Grid
+            sx={{
+              display: { xs: "none", md: "flex" },
+              width: "444px",
+              p: "24px",
+
+              justifyContent: "center",
+              flexDirection: "column",
+              borderRadius: "18px",
+              color: "#FFF",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(147.9px)", // Aplica o blur
+              boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)", // Sombra
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: "bold",
+                display: "flex",
+
+                alignItems: "center",
+              }}
+              variant="h4"
+              component="h4"
+            >
+              Acelere suas vendas <img src="/img/icon-rocket.png" />
             </Typography>
-          </Grid>
-          <Grid>
-            <Typography sx={{ p: 2 }} variant="h3" component="h3">
-              Categoria
-            </Typography>
-          </Grid>
-          <Grid>
-            <Typography sx={{ p: 2 }} variant="h3" component="h3">
-              Categoria
+
+            <Typography sx={{ maxWidth: "80%" }} variant="body1">
+              Ganhe tempo com a tecnologia trabalhando a seu favor
             </Typography>
           </Grid>
 
-          <Grid container item spacing={2}>
-            <Grid item xs={6}>
-              <Typography variant="h6">Subtítulo 5</Typography>
-              <Typography>Este é o texto do bloco 5.</Typography>
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              pl: "24px",
+              pr: "24px",
+              mb: "24px",
+              gap: 3,
+            }}
+          >
+            <Grid
+              item
+              xs={6}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                width: "210px",
+                p: "24px",
+                justifyContent: "center",
+                flexDirection: "column",
+                borderRadius: "18px",
+                color: "#5D2E9A",
+                backgroundColor: "#F7F0FF",
+                backdropFilter: "blur(147.9px)", // Aplica o blur
+                boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)", // Sombra
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                variant="h4"
+              >
+                Abc
+                <Box
+                  component="img"
+                  src="/img/icon-rocket.png"
+                  alt="Ícone de foguete"
+                  sx={{ marginLeft: "auto" }} // Empurra a imagem para o final do flex
+                />
+              </Typography>
+              <Typography>
+                Ganhe tempo com a tecnologia trabalhando a seu favor
+              </Typography>
             </Grid>
-            <Grid item xs={6}>
-              <Typography variant="h6">Subtítulo 6</Typography>
-              <Typography>Este é o texto do bloco 6.</Typography>
+            <Grid
+              item
+              xs={6}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                width: "210px",
+                p: "24px",
+                justifyContent: "center",
+                flexDirection: "column",
+                borderRadius: "18px",
+                color: "#5D2E9A",
+                backgroundColor: "#F7F0FF",
+                backdropFilter: "blur(147.9px)", // Aplica o blur
+                boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)", // Sombra
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                variant="h4"
+              >
+                Abc
+                <Box
+                  component="img"
+                  src="/img/icon-rocket.png"
+                  alt="Ícone de foguete"
+                  sx={{ marginLeft: "auto" }} // Empurra a imagem para o final do flex
+                />
+              </Typography>
+              <Typography>
+                Ganhe tempo com a tecnologia trabalhando a seu favor
+              </Typography>
             </Grid>
           </Grid>
         </Grid>

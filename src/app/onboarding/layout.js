@@ -11,13 +11,21 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Chip, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-
-
 export default function LayoutOnboarding({ children }) {
   const theme = useTheme();
 
   return (
-    <Container sx={{ p: 0, height: "100vh", width: "100%" }}>
+    <Box
+      sx={{
+        p: 0,
+        m: 0,
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {" "}
       {/* Define o tamanho máximo para um app web */}
       <Box
@@ -28,11 +36,9 @@ export default function LayoutOnboarding({ children }) {
 
           [theme.breakpoints.up("md")]: {
             // Aplica no desktop (md em diante)
-            mt: 19,
-            mb: 19,
             borderRadius: 4,
             bgcolor: "#000000", // Cor de fundo para desktop
-            mx: "auto", // Centraliza horizontalmente
+
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center", // Centraliza o texto
@@ -79,6 +85,6 @@ export default function LayoutOnboarding({ children }) {
 
         {children}
       </Box>
-    </Container>
+    </Box>
   );
 }

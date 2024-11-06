@@ -40,7 +40,7 @@ function MyPage() {
           mt: 2,
           "@media (min-width: 768px)": {
             backgroundColor: "#5D2E9A", // Fundo roxo em desktop
-            pb: 5,
+            pb: 4,
           },
         }}
       >
