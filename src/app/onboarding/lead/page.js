@@ -27,7 +27,7 @@ function MyPage() {
       />
       {step === 1 && <Step1 />}
       {step === 2 && <Step2 />}
-
+        
       <Grid
         item
         display="flex"

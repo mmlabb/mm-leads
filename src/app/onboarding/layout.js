@@ -22,8 +22,10 @@ export default function LayoutOnboarding({ children }) {
         height: "100vh",
         width: "100%",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        [theme.breakpoints.up("md")]: {
+          justifyContent: "center",
+          alignItems: "center",
+        },
       }}
     >
       {" "}
