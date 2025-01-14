@@ -211,7 +211,7 @@ export default function LayoutChat({ children }) {
                 }}
                 variant="h4"
               >
-                Abc
+                ERP
                 <Box
                   component="img"
                   src="/img/icon-rocket.png"
