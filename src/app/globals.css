@@ -73,10 +73,9 @@ a {
   max-width: 100% !important;
 }
 
-.container-pai-chat{
+.container-pai-chat {
   padding: 0% !important;
 }
-
 
 @media (min-width: 768px) {
   .MuiAppBar-root {
@@ -85,6 +84,7 @@ a {
   .box-chat {
     margin: 0 !important;
   }
+  
 }
 
 @media (min-width: 768px) {
