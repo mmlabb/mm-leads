@@ -57,7 +57,7 @@ export default function LayoutChat({ children }) {
             width: "492px",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundImage: `url('/img/GradientBoot.png')`,
+            backgroundImage: `url('/img/GradientBoot2(1).png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             gap: "24px",
