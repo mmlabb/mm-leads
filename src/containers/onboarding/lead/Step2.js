@@ -41,7 +41,9 @@ export default function Home() {
             <DotLottieReact
               data={animation}
               width={200}
-              autoResizeCanvas={false}
+              options={{
+                autoResizeCanvas: false,
+              }}
               loop
               autoplay
             />

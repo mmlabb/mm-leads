@@ -41,7 +41,9 @@ export default function Home() {
             <DotLottieReact
               data={robot}
               width={200}
-              autoResizeCanvas={false}
+              options={{
+                autoResizeCanvas: false,
+              }}
               loop
               autoplay
             />
@@ -75,7 +77,8 @@ export default function Home() {
               },
             }}
           >
-            Crie outras demandas que o seu negócio<br/> precisa para alavancar!
+            Crie outras demandas que o seu negócio
+            <br /> precisa para alavancar!
           </Typography>
         </Grid>
       </Grid>
