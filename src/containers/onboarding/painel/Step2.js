@@ -41,7 +41,9 @@ export default function Home() {
             <DotLottieReact
               data={robot}
               width={200}
-              autoResizeCanvas={false}
+              options={{
+                autoResizeCanvas: false,
+              }}
               loop
               autoplay
             />
@@ -75,7 +77,8 @@ export default function Home() {
               },
             }}
           >
-            Otimize sua demanda e baixe o PDF<br/> detalhado do seu pedido
+            Otimize sua demanda e baixe o PDF
+            <br /> detalhado do seu pedido
           </Typography>
         </Grid>
       </Grid>
