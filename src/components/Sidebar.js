@@ -8,10 +8,11 @@ export default function Sidebar() {
       container
       direction="column"
       sx={{
-        display: { xs: "none", md: "flex" }, // Oculta no mobile
-        width: "492px",
+        display: { xs: "none", md: "flex" },
+        maxWidth: "492px",
+        width: "100%",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "center",
         backgroundImage: `url('/img/GradientBoot.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -28,7 +29,8 @@ export default function Sidebar() {
       {/* Card principal */}
       <Grid
         sx={{
-          width: "444px",
+          maxWidth: "444px",
+          width: "100%",
           p: "24px",
           mt: "24px",
           justifyContent: "center",
@@ -59,7 +61,8 @@ export default function Sidebar() {
 
       <Grid
         sx={{
-          width: "444px",
+          maxWidth: "444px",
+          width: "100%",
           p: "24px",
           mt: "24px",
           justifyContent: "center",
@@ -92,8 +95,9 @@ export default function Sidebar() {
       <Grid
         sx={{
           display: "flex",
-          gap: 3,
-          width: "444px",
+          gap: "24px",
+          maxWidth: "444px",
+          width: "100%",
           justifyContent: "center",
         }}
       >
@@ -101,7 +105,8 @@ export default function Sidebar() {
           <Grid
             key={title}
             sx={{
-              width: "210px",
+              maxWidth: "210px",
+              width: "48%",
               p: "24px",
               justifyContent: "center",
               flexDirection: "column",
