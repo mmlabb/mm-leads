@@ -1,24 +1,17 @@
 "use client";
-import Box from "@mui/material/Box";
-import { Chip, Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Typography } from "@mui/material";
-import { RocketLaunch } from "@mui/icons-material";
+import Sidebar from "@/components/Sidebar"; // Importa o novo componente Sidebar
 
 export default function LayoutChat({ children }) {
   const theme = useTheme();
 
   return (
-    <Container
-      className="container-pai-chat"
-      maxWidth="xxl"
-      sx={{ p: 0, m: 0 }}
-    >
-      {/* Define o tamanho máximo para um app web */}
+    <Container maxWidth="xxl" sx={{ p: 0, m: 0 }}>
       <Grid
         container
         spacing={1}
-        sx={{ width: "100%", m: 0, p: 0, justifyContent: "center" }}
+        sx={{ width: "100%", justifyContent: "center" }}
       >
         <Grid
           size={8}
@@ -27,14 +20,13 @@ export default function LayoutChat({ children }) {
             flexGrow: 1,
             height: "100%",
             [theme.breakpoints.up("md")]: {
-              // Aplica no desktop (md em diante)
               margin: 0,
               borderRadius: 4,
-              bgcolor: "#000000", // Cor de fundo para desktop
-              mx: "auto", // Centraliza horizontalmente
+              bgcolor: "#000000",
+              mx: "auto",
               justifyContent: "center",
               alignItems: "center",
-              textAlign: "center", // Centraliza o texto
+              textAlign: "center",
             },
           }}
         >
