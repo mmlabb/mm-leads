@@ -87,7 +87,13 @@ a {
   .box-chat {
     margin: 0 !important;
   }
-  
+}
+
+@media (min-width: 600px) {
+  .mui-1wx7v4b-MuiContainer-root {
+    padding-left: 0px  !important;
+    padding-right: 0px !important;
+  }
 }
 
 @media (min-width: 768px) {
