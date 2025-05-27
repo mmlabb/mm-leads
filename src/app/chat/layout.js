@@ -1,5 +1,5 @@
 "use client";
-import { Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Sidebar from "@/components/Sidebar"; // Importa o novo componente Sidebar
 
