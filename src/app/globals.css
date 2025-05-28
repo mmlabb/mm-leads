@@ -80,6 +80,33 @@ a {
   padding: 0% !important;
 }
 
+@media (min-width: 0px) {
+  .mui-1fzj820-MuiGrid-root {
+    display: block !important;
+  }
+}
+
+/* carousel.css */
+.slick-dots {
+  bottom: 10px;
+}
+.slick-dots li button:before {
+  color: #5d2e9a;
+  font-size: 12px;
+}
+
+@media (min-width: 0px) {
+  .mui-1s8guwg-MuiGrid-root {
+    display: block !important;
+  }
+}
+
+@media (min-width: 0px) {
+  .mui-r5n8mo-MuiGrid-root {
+    display: block !important;
+  }
+}
+
 @media (min-width: 768px) {
   .MuiAppBar-root {
     border-radius: 24px !important;
@@ -91,7 +118,7 @@ a {
 
 @media (min-width: 600px) {
   .mui-1wx7v4b-MuiContainer-root {
-    padding-left: 0px  !important;
+    padding-left: 0px !important;
     padding-right: 0px !important;
   }
 }
