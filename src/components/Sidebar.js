@@ -15,6 +15,8 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import PopupBlog from "./PopupBlog";
+import { Button } from "@mui/material";
 
 const images = [
   {
@@ -249,7 +251,7 @@ export default function Sidebar() {
           display: { xs: "none", md: "flex" },
           width: "444px",
           p: "24px",
-          mb: 5,
+
           justifyContent: "center",
           flexDirection: "column",
           borderRadius: "18px",
@@ -277,7 +279,22 @@ export default function Sidebar() {
           seu atendimento e trás muito mais facilidade para o fechamento da sua
           venda?
         </Typography>
+
+        <Button
+          fullWidth
+          sx={{
+            borderRadius: "24px",
+            background: "linear-gradient(135deg, #db00ff, #6221a2) !important",
+            color: "#fff",
+            fontWeight: "bold",
+            textTransform: "none",
+            mt: 2,
+          }}
+        >
+          Criar meu Chat
+        </Button>
       </Grid>
+      <PopupBlog />
     </Grid>
   );
 }
