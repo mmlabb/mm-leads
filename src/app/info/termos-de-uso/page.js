@@ -1,42 +1,81 @@
+"use client";
 import React from "react";
+import { Container, Typography, Box, Divider, Link } from "@mui/material";
 
 export default function Page() {
   return (
-    <div className="termos-de-uso">
-      <h1>Termos de Uso</h1>
+    <Container maxWidth="md">
+      <Box>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          style={{ color: "#1976d2" }}
+        >
+          Termos de Uso
+        </Typography>
 
-      <h2>1. Introdução</h2>
-      <p>
-        Estes Termos de Uso regem o uso do nosso chatbot no Instagram. Ao
-        utilizar nosso chatbot, você concorda com estes termos.
-      </p>
+        <Typography variant="body1" paragraph>
+          Estes Termos de Uso regem o uso do nosso chatbot no Instagram. Ao
+          utilizar nosso chatbot, você concorda com estes termos.
+        </Typography>
 
-      <h2>2. Uso do Chatbot</h2>
-      <ul>
-        <li>O usuário deve utilizar o chatbot apenas para fins legais.</li>
-        <li>O usuário não deve enviar mensagens ofensivas ou ilegais.</li>
-      </ul>
+        <Divider style={{ margin: "20px 0" }} />
 
-      <h2>3. Direitos Autorais</h2>
-      <p>Todos os direitos autorais do conteúdo do chatbot são reservados.</p>
+        <Typography variant="h5" gutterBottom style={{ color: "#1976d2" }}>
+          Uso do Chatbot
+        </Typography>
 
-      <h2>4. Limitação de Responsabilidade</h2>
-      <p>Nós não somos responsáveis por danos causados pelo uso do chatbot.</p>
+        <Box component="ul" sx={{ pl: 2 }}>
+          <li>O usuário deve utilizar o chatbot apenas para fins legais.</li>
+          <li>O usuário não deve enviar mensagens ofensivas ou ilegais.</li>
+        </Box>
 
-      <h2>5. Alterações</h2>
-      <p>
-        Reservamos o direito de alterar estes Termos de Uso a qualquer momento.
-      </p>
+        <Divider style={{ margin: "20px 0" }} />
 
-      <h2>6. Contato</h2>
-      <p>
-        Para questões ou solicitações, entre em contato por mensagem direta no
-        Instagram ou envie um e-mail para{" "}
-        <a href="mailto:seuemail@example.com">seuemail@example.com</a>.
-      </p>
+        <Typography variant="h5" gutterBottom style={{ color: "#1976d2" }}>
+          Direitos Autorais
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Todos os direitos autorais do conteúdo do chatbot são reservados.
+        </Typography>
 
-      <h2>7. Data de Atualização</h2>
-      <p>[Data atual]</p>
-    </div>
+        <Divider style={{ margin: "20px 0" }} />
+
+        <Typography variant="h5" gutterBottom style={{ color: "#1976d2" }}>
+          Limitação de Responsabilidade
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Nós não somos responsáveis por danos causados pelo uso do chatbot.
+        </Typography>
+
+        <Divider style={{ margin: "20px 0" }} />
+
+        <Typography variant="h5" gutterBottom style={{ color: "#1976d2" }}>
+          Alterações
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Reservamos o direito de alterar estes Termos de Uso a qualquer
+          momento.
+        </Typography>
+
+        <Divider style={{ margin: "20px 0" }} />
+
+        <Typography variant="h5" gutterBottom style={{ color: "#1976d2" }}>
+          Contato
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Para questões ou solicitações, entre em contato por mensagem direta no
+          e-mail para{" "}
+          <Link href="mailto:seuemail@example.com">contato@magmeta.br</Link>.
+        </Typography>
+
+        <Divider style={{ margin: "20px 0" }} />
+
+        <Typography variant="body2" align="center" style={{ color: "#555" }}>
+          Data de atualização: <strong>[30/05/2025]</strong>
+        </Typography>
+      </Box>
+    </Container>
   );
 }
