@@ -27,7 +27,12 @@ export default function Home() {
             Olá, é um prazer ter você por aqui!
           </Typography>
         </Grid>
-        <Grid xs={12} display="flex" alignItems="center" justifyContent={"center"}>
+        <Grid
+          xs={12}
+          display="flex"
+          alignItems="center"
+          justifyContent={"center"}
+        >
           <Box
             sx={{
               justifyContent: "center",
@@ -39,13 +44,7 @@ export default function Home() {
               },
             }}
           >
-            <DotLottieReact
-              data={robot}
-              width={200}
-              autoResizeCanvas={false}
-              loop
-              autoplay
-            />
+            <DotLottieReact data={robot} width={200} loop autoplay />
           </Box>
         </Grid>
         <Grid
