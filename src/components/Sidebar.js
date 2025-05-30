@@ -263,7 +263,7 @@ export default function CarouselForwardOnly() {
             xs={5}
             sx={{
               display: { xs: "none", md: "flex" },
-              p: "24px",
+              p: "20px",
               justifyContent: "center",
               flexDirection: "column",
               borderRadius: "18px",
