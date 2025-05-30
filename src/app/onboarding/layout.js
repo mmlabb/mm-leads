@@ -10,9 +10,28 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { Chip, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { useRouter } from "next/navigation";
 
 export default function LayoutOnboarding({ children }) {
   const theme = useTheme();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const router = useRouter();
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleRedirect = (path) => {
+    handleClose();
+    router.push(path);
+  };
 
   return (
     <Box
@@ -63,11 +82,42 @@ export default function LayoutOnboarding({ children }) {
               size="large"
               edge="start"
               color="inherit"
-              aria-label="menu"
+              aria-label="help"
               sx={{ mr: 2 }}
+              onClick={handleClick}
             >
               <HelpIcon />
             </IconButton>
+
+            <Menu
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              PaperProps={{
+                sx: {
+                  backgroundColor: "#5E2CA5", 
+                  color: "#ffffff", 
+                  mt: 1, 
+                  borderRadius: 2, 
+                  boxShadow: 3, 
+                },
+              }}
+            >
+              <MenuItem onClick={() => handleRedirect("/info/termos-de-uso/")}>
+                Termos de Uso
+              </MenuItem>
+              <MenuItem onClick={() => handleRedirect("/info/politica-pivacidade")}>
+                Política de Privacidade
+              </MenuItem>
+            </Menu>
 
             <Chip
               label="Pular"
