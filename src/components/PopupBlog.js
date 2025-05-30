@@ -11,20 +11,7 @@ const PopupBlog = () => {
   return (
     <div className="popupContainer">
       <div className="popupContent">
-        <button
-          onClick={() => setIsVisible(false)}
-          className="closeButton"
-          aria-label="Fechar pop-up"
-        >
-          ×
-        </button>
-
-        <img
-          src="/img/bookk.png"
-          alt="Img book"
-          width={78}
-          height={78}
-        />
+        <img src="/img/bookk.png" alt="Img book" width={88} height={88} />
         <div className="popupTextGroup">
           <h5 className="popupTitle">Acesse gratuitamente</h5>
           <span className="popupText">Por tempo limitado!</span>
