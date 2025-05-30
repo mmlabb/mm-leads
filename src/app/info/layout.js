@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { CardContent, Chip, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import HelpDropdown from "@/components/HelpDropdown";
 
 export default function LayoutOnboarding({ children }) {
   const theme = useTheme();
@@ -59,15 +60,7 @@ export default function LayoutOnboarding({ children }) {
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <HelpIcon />
-            </IconButton>
+            <HelpDropdown />
 
             <Chip
               label="Pular"
@@ -87,7 +80,10 @@ export default function LayoutOnboarding({ children }) {
 
         <CardContent
           className="overflow-y-auto"
-          sx={{ maxHeight: { xs: "", md: "80vh", lg: "80vh" }, overflowY: "scroll" }}
+          sx={{
+            maxHeight: { xs: "", md: "80vh", lg: "80vh" },
+            overflowY: "scroll",
+          }}
         >
           {children}
         </CardContent>
