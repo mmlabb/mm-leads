@@ -9,37 +9,53 @@ import {
 } from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PopupBlog from "./PopupBlog";
 import { Button } from "@mui/material";
+import Carousel from "react-material-ui-carousel";
+import React, { useState, useEffect, useRef } from "react";
 
 const images = [
   {
     label: "Criativo",
     imgPath: "/img/criativo-blog.png",
+    url: "https://magmeta.com.br/blog/como-automatizar-seu-agendamento",
   },
   {
     label: "Carrousel",
     imgPath: "/img/criativo-blog-2.png",
+
+    url: "https://magmeta.com.br/blog/como-aumentar-a-fidelizacao-de-clientes",
   },
 ];
 
-export default function Sidebar() {
-  const theme = useTheme();
+export default function CarouselForwardOnly() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [animating, setAnimating] = useState(false);
+  const timeoutRef = useRef(null);
   const maxSteps = images.length;
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep((prev) => (prev === maxSteps - 1 ? 0 : prev + 1));
+    if (isHovered) return; // pausa enquanto hover
+
+    timeoutRef.current = setTimeout(() => {
+      setAnimating(true);
+
+      setTimeout(() => {
+        setActiveStep((prev) => (prev + 1) % maxSteps);
+        setAnimating(false);
+      }, 500); // duração da animação
     }, 5000);
-    return () => clearInterval(timer);
-  }, [maxSteps]);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [activeStep, isHovered, maxSteps]);
 
   return (
     <Grid
@@ -62,7 +78,6 @@ export default function Sidebar() {
         borderTopLeftRadius: "18px",
       }}
     >
-      {/* Overlay de fundo com opacidade */}
       <Box
         sx={{
           position: "absolute",
@@ -79,6 +94,7 @@ export default function Sidebar() {
       />
 
       <Grid
+        className="carrousel"
         container
         direction="column"
         sx={{
@@ -91,32 +107,65 @@ export default function Sidebar() {
           gap: "24px",
         }}
       >
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={images[activeStep].imgPath}
-            src={images[activeStep].imgPath}
-            alt={images[activeStep].label}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              borderRadius: "18px",
+        <Box
+          sx={{
+            width: 444,
+            height: 240,
+            overflow: "hidden",
+            borderRadius: 3,
+            position: "relative",
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              width: `${maxSteps * 100}%`,
+              transform: animating
+                ? `translateX(-${(activeStep + 1) * (100 / maxSteps)}%)`
+                : `translateX(-${activeStep * (100 / maxSteps)}%)`,
+              transition: animating ? "transform 0.5s ease-in-out" : "none",
             }}
-          />
-        </AnimatePresence>
+          >
+            {images.map((item, index) => (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  width: `${100 / maxSteps}%`,
+                  height: "100%",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={item.imgPath}
+                  alt={item.label}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    flexShrink: 0,
+                    objectFit: "contain",
+                    cursor: "pointer",
+                  }}
+                />
+              </a>
+            ))}
+          </Box>
+        </Box>
       </Grid>
 
-      {/* Bolinhas clicáveis */}
       <Grid
         container
         justifyContent="center"
         sx={{
-          mt: 2,
+          mt: 1,
           mb: 2,
+          position: "relative",
+          zIndex: 3,
         }}
       >
         {images.map((_, index) => (
@@ -128,10 +177,10 @@ export default function Sidebar() {
               height: 12,
               borderRadius: "50%",
               mx: 0.5,
-              cursor: "pointer",
               backgroundColor:
                 index === activeStep ? "#fff" : "rgba(93, 46, 154, 0.3)",
               transition: "background-color 0.3s",
+              cursor: "pointer",
             }}
           />
         ))}
@@ -192,7 +241,6 @@ export default function Sidebar() {
           xs={5}
           sx={{
             display: { xs: "none", md: "flex" },
-
             p: "24px",
             justifyContent: "center",
             flexDirection: "column",
@@ -251,7 +299,6 @@ export default function Sidebar() {
           display: { xs: "none", md: "flex" },
           width: "444px",
           p: "24px",
-
           justifyContent: "center",
           flexDirection: "column",
           borderRadius: "18px",
