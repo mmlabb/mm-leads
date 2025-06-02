@@ -7,7 +7,7 @@ export default function LayoutChat({ children }) {
   const theme = useTheme();
 
   return (
-    <Container className="container-p" maxWidth="xxl" sx={{ p: 0, m: 0 }}>
+    <div className="container-p">
       <Grid
         container
         spacing={1}
@@ -42,6 +42,6 @@ export default function LayoutChat({ children }) {
         </Grid>
         <Sidebar />
       </Grid>
-    </Container>
+    </div>
   );
 }
