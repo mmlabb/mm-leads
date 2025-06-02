@@ -97,7 +97,7 @@ a {
 }
 
 .popupContainer {
-  width: 100%;
+  width: 444px;
   background-color: rgba(53 4 98 / 63%);
   backdrop-filter: blur(5px);
   border: 1px solid #6d06c8;
