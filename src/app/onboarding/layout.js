@@ -114,7 +114,7 @@ export default function LayoutOnboarding({ children }) {
               <MenuItem onClick={() => handleRedirect("/info/termos-de-uso/")}>
                 Termos de Uso
               </MenuItem>
-              <MenuItem onClick={() => handleRedirect("/info/politica-pivacidade")}>
+              <MenuItem onClick={() => handleRedirect("/info/politica-privacidade")}>
                 Política de Privacidade
               </MenuItem>
             </Menu>
