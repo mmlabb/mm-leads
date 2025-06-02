@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
         </Typography>
         <Typography variant="body1" paragraph>
           Para questões ou solicitações, entre em contato por mensagem direta no
-          Instagram ou envie um e-mail para{" "}
+          e-mail para{" "}
           <Link href="mailto:seuemail@example.com">contato@magmeta.br</Link>.
         </Typography>
 
