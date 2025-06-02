@@ -63,9 +63,9 @@ export default function LayoutOnboarding({ children }) {
             <HelpDropdown />
 
             <Chip
-              label="Pular"
+              label="Voltar"
               component="a"
-              href="/chat"
+              href="/onboarding/lead"
               clickable
               sx={{
                 backgroundColor: "#201034",
