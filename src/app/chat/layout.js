@@ -7,11 +7,11 @@ export default function LayoutChat({ children }) {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="xxl" sx={{ p: 0, m: 0 }}>
+    <Container className="container-p" maxWidth="xxl" sx={{ p: 0, m: 0 }}>
       <Grid
         container
         spacing={1}
-        sx={{ width: "100%", justifyContent: "center" }}
+        sx={{ width: "100%", justifyContent: "center", p: 0, m: 0 }}
       >
         <Grid
           size={8}
