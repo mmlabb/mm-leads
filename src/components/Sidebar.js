@@ -65,16 +65,15 @@ export default function CarouselForwardOnly() {
       sx={{
         width: "492px",
         height: "100%",
-        maxHeight: "100vh",
+        maxHeight: "94vh",
         alignItems: "center",
         justifyContent: "space-between",
         position: "relative",
         overflow: "hidden",
         gap: "24px",
-        pt: 1,
-        pb: 1,
-        mt: 5,
-        mb: 5,
+        
+        mt: 3,
+        mb: 3,
         color: "#000000",
         borderBottomLeftRadius: "18px",
         borderTopLeftRadius: "18px",
@@ -133,7 +132,7 @@ export default function CarouselForwardOnly() {
         >
           <Box
             sx={{
-              width: 444,
+              width: "100%",
               height: 240,
               overflow: "hidden",
               borderRadius: 3,
@@ -186,8 +185,7 @@ export default function CarouselForwardOnly() {
           container
           justifyContent="center"
           sx={{
-            mt: 1,
-            mb: 2,
+            
             position: "relative",
             zIndex: 3,
           }}
@@ -315,7 +313,7 @@ export default function CarouselForwardOnly() {
         <Grid
           sx={{
             display: { xs: "none", md: "flex" },
-            width: "444px",
+            width: "100%",
             p: "24px",
             justifyContent: "center",
             flexDirection: "column",
