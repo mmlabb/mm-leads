@@ -274,7 +274,7 @@ export default function CarouselForwardOnly() {
               {[
                 {
                   icon: <FacebookOutlinedIcon sx={{ fontSize: 42 }} />,
-                  url: "https://www.facebook.com/profile.php?id=100089418330403",
+                  url: "https://www.facebook.com/profile.php?id=61560382723312",
                 },
                 {
                   icon: <LinkedInIcon sx={{ fontSize: 42 }} />,
@@ -282,11 +282,11 @@ export default function CarouselForwardOnly() {
                 },
                 {
                   icon: <InstagramIcon sx={{ fontSize: 42 }} />,
-                  url: "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fmagmetadigital%2F&is_from_rle",
+                  url: "https://www.instagram.com/magmetasolucoes/",
                 },
                 {
                   icon: <WhatsAppIcon sx={{ fontSize: 42 }} />,
-                  url: "https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20Vim%20pelo%20Guia%20Pr%C3%A1tico%20e%20quero%20automatizar%20meu%20atendimento.",
+                  url: "https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Quero%20automatizar%20meu%20atendimento.",
                 },
               ].map((item, idx) => (
                 <Grid
@@ -345,7 +345,7 @@ export default function CarouselForwardOnly() {
 
           <Button
             component="a"
-            href="https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20Vim%20pelo%20Guia%20Pr%C3%A1tico%20e%20quero%20automatizar%20meu%20atendimento."
+            href="https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Quero%20automatizar%20meu%20atendimento."
             target="_blank"
             rel="noopener noreferrer"
             fullWidth
