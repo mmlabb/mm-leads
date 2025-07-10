@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -39,6 +39,9 @@ export default function CarouselForwardOnly() {
   const [animating, setAnimating] = useState(false);
   const timeoutRef = useRef(null);
   const maxSteps = images.length;
+
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
     if (isHovered) return; // pausa enquanto hover
@@ -71,7 +74,7 @@ export default function CarouselForwardOnly() {
         position: "relative",
         overflow: "hidden",
         gap: "24px",
-        
+
         mt: 3,
         mb: 3,
         color: "#000000",
@@ -149,18 +152,61 @@ export default function CarouselForwardOnly() {
                   ? `translateX(-${(activeStep + 1) * (100 / maxSteps)}%)`
                   : `translateX(-${activeStep * (100 / maxSteps)}%)`,
                 transition: animating ? "transform 0.5s ease-in-out" : "none",
+                cursor: dragging ? "grabbing" : "grab",
+              }}
+              onMouseDown={(e) => {
+                setDragStartX(e.clientX);
+                setDragging(true);
+              }}
+              onMouseMove={(e) => {
+                if (!dragging) return;
+                const diff = e.clientX - dragStartX;
+                if (Math.abs(diff) > 50) {
+                  if (diff > 0) {
+                    setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
+                  } else {
+                    setActiveStep((prev) => (prev + 1) % maxSteps);
+                  }
+                  setDragging(false);
+                }
+              }}
+              onMouseUp={() => {
+                setDragging(false);
+              }}
+              onTouchStart={(e) => {
+                setDragStartX(e.touches[0].clientX);
+                setDragging(true);
+              }}
+              onTouchMove={(e) => {
+                if (!dragging) return;
+                const diff = e.touches[0].clientX - dragStartX;
+                if (Math.abs(diff) > 50) {
+                  if (diff > 0) {
+                    setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
+                  } else {
+                    setActiveStep((prev) => (prev + 1) % maxSteps);
+                  }
+                  setDragging(false);
+                }
+              }}
+              onTouchEnd={() => {
+                setDragging(false);
               }}
             >
               {images.map((item, index) => (
-                <a
+                <Box
                   key={index}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
+                  sx={{
                     width: `${100 / maxSteps}%`,
                     height: "100%",
+                    flexShrink: 0,
+                  }}
+                  onClick={(e) => {
+                    if (dragging) {
+                      e.preventDefault(); // cancela o clique se estiver arrastando
+                    } else {
+                      window.open(item.url, "_blank");
+                    }
                   }}
                 >
                   <Box
@@ -170,12 +216,11 @@ export default function CarouselForwardOnly() {
                     sx={{
                       width: "100%",
                       height: "100%",
-                      flexShrink: 0,
                       objectFit: "contain",
-                      cursor: "pointer",
+                      pointerEvents: "none",
                     }}
                   />
-                </a>
+                </Box>
               ))}
             </Box>
           </Box>
@@ -185,7 +230,6 @@ export default function CarouselForwardOnly() {
           container
           justifyContent="center"
           sx={{
-            
             position: "relative",
             zIndex: 3,
           }}
@@ -246,8 +290,8 @@ export default function CarouselForwardOnly() {
               <RocketLaunchIcon
                 sx={{
                   margin: "auto",
-                  fontSize: "1.5rem", 
-                  color: "#fff", 
+                  fontSize: "1.5rem",
+                  color: "#fff",
                 }}
               />
             </Typography>
@@ -359,7 +403,7 @@ export default function CarouselForwardOnly() {
               mt: 2,
             }}
           >
-            Criar meu Chat
+            Agendar Reunião
           </Button>
         </Grid>
         <PopupBlog />
