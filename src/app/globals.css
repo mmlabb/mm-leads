@@ -81,6 +81,12 @@ a {
   padding: 0% !important;
 }
 
+@media (min-width: 900px) {
+  .mui-oux40l-MuiGrid-root {
+    max-width: 24% !important;
+  }
+}
+
 @media (min-width: 0px) {
   .mui-1fzj820-MuiGrid-root {
     display: block !important;
@@ -89,7 +95,7 @@ a {
 
 /* carousel.css */
 .slick-dots {
-  bottom: 10px;
+  bottom: 6px;
 }
 .slick-dots li button:before {
   color: #5d2e9a;
@@ -151,8 +157,6 @@ a {
   background-color: #6b21a8;
   transform: translateX(2px);
 }
-
-
 
 .mui-1or60pf-MuiGrid-root {
   padding-bottom: 0% !important;
