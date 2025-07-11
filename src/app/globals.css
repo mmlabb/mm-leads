@@ -93,6 +93,15 @@ a {
   }
 }
 
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #6221a2ba !important;
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
 /* carousel.css */
 .slick-dots {
   bottom: 6px;
