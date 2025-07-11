@@ -18,6 +18,7 @@ import PopupBlog from "./PopupBlog";
 import { Button } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import React, { useState, useEffect, useRef } from "react";
+import CarouselSideSwiper from "./CarouselSide";
 
 const images = [
   {
@@ -133,123 +134,7 @@ export default function CarouselForwardOnly() {
             gap: "24px",
           }}
         >
-          <Box
-            sx={{
-              width: "100%",
-              height: 240,
-              overflow: "hidden",
-              borderRadius: 3,
-              position: "relative",
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                width: `${maxSteps * 100}%`,
-                transform: animating
-                  ? `translateX(-${(activeStep + 1) * (100 / maxSteps)}%)`
-                  : `translateX(-${activeStep * (100 / maxSteps)}%)`,
-                transition: animating ? "transform 0.5s ease-in-out" : "none",
-                cursor: dragging ? "grabbing" : "grab",
-              }}
-              onMouseDown={(e) => {
-                setDragStartX(e.clientX);
-                setDragging(true);
-              }}
-              onMouseMove={(e) => {
-                if (!dragging) return;
-                const diff = e.clientX - dragStartX;
-                if (Math.abs(diff) > 50) {
-                  if (diff > 0) {
-                    setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
-                  } else {
-                    setActiveStep((prev) => (prev + 1) % maxSteps);
-                  }
-                  setDragging(false);
-                }
-              }}
-              onMouseUp={() => {
-                setDragging(false);
-              }}
-              onTouchStart={(e) => {
-                setDragStartX(e.touches[0].clientX);
-                setDragging(true);
-              }}
-              onTouchMove={(e) => {
-                if (!dragging) return;
-                const diff = e.touches[0].clientX - dragStartX;
-                if (Math.abs(diff) > 50) {
-                  if (diff > 0) {
-                    setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
-                  } else {
-                    setActiveStep((prev) => (prev + 1) % maxSteps);
-                  }
-                  setDragging(false);
-                }
-              }}
-              onTouchEnd={() => {
-                setDragging(false);
-              }}
-            >
-              {images.map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    width: `${100 / maxSteps}%`,
-                    height: "100%",
-                    flexShrink: 0,
-                  }}
-                  onClick={(e) => {
-                    if (dragging) {
-                      e.preventDefault(); // cancela o clique se estiver arrastando
-                    } else {
-                      window.open(item.url, "_blank");
-                    }
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={item.imgPath}
-                    alt={item.label}
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      pointerEvents: "none",
-                    }}
-                  />
-                </Box>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
-
-        <Grid
-          container
-          justifyContent="center"
-          sx={{
-            position: "relative",
-            zIndex: 3,
-          }}
-        >
-          {images.map((_, index) => (
-            <Box
-              key={index}
-              onClick={() => setActiveStep(index)}
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                mx: 0.5,
-                backgroundColor:
-                  index === activeStep ? "#fff" : "rgba(93, 46, 154, 0.3)",
-                transition: "background-color 0.3s",
-                cursor: "pointer",
-              }}
-            />
-          ))}
+          <CarouselSideSwiper />
         </Grid>
 
         <Grid
@@ -262,16 +147,14 @@ export default function CarouselForwardOnly() {
           }}
         >
           <Grid
-            item
-            xs={7}
             sx={{
               display: { xs: "none", md: "flex" },
-              width: "210px",
+              width: "100%",
               p: "24px",
               justifyContent: "center",
               flexDirection: "column",
               borderRadius: "18px",
-              color: "#fff",
+              color: "#FFF",
               backgroundColor: "rgba(255, 255, 255, 0.1)",
               backdropFilter: "blur(147.9px)",
               boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)",
@@ -285,76 +168,47 @@ export default function CarouselForwardOnly() {
                 alignItems: "center",
               }}
               variant="h5"
+              component="h5"
             >
               Soluções
               <RocketLaunchIcon
                 sx={{
-                  margin: "auto",
+                  margin: "14px",
                   fontSize: "1.5rem",
                   color: "#fff",
                 }}
               />
             </Typography>
-            <Typography>
+
+            <Typography sx={{ maxWidth: "80%" }} variant="body1">
               Quer uma solução pronta para implementar na sua Empresa? Ela está
               aqui!
             </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={5}
-            sx={{
-              display: { xs: "none", md: "flex" },
-              p: "20px",
-              justifyContent: "center",
-              flexDirection: "column",
-              borderRadius: "18px",
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              backdropFilter: "blur(147.9px)",
-              boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            <Grid container sx={{ width: "100%", justifyContent: "center" }}>
-              {[
-                {
-                  icon: <FacebookOutlinedIcon sx={{ fontSize: 42 }} />,
-                  url: "https://www.facebook.com/profile.php?id=61560382723312",
-                },
-                {
-                  icon: <LinkedInIcon sx={{ fontSize: 42 }} />,
-                  url: "https://linkedin.com",
-                },
-                {
-                  icon: <InstagramIcon sx={{ fontSize: 42 }} />,
-                  url: "https://www.instagram.com/magmetasolucoes/",
-                },
-                {
-                  icon: <WhatsAppIcon sx={{ fontSize: 42 }} />,
-                  url: "https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Quero%20automatizar%20meu%20atendimento.",
-                },
-              ].map((item, idx) => (
-                <Grid
-                  key={idx}
-                  item
-                  xs={6}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                >
-                  <IconButton
-                    component="a"
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{ p: 1 }}
-                  >
-                    {item.icon}
-                  </IconButton>
-                </Grid>
-              ))}
-            </Grid>
+
+            <Button
+              component="a"
+              href="https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Gostaria de%20Agendar%20uma%20Reunião."
+              target="_blank"
+              rel="noopener noreferrer"
+              fullWidth
+              sx={{
+                borderRadius: "24px",
+                background:
+                  "linear-gradient(135deg, #db00ff, #6221a2) !important",
+                color: "#fff",
+                fontWeight: "bold",
+                textTransform: "none",
+                mt: 2,
+              }}
+            >
+              Agendar Reunião
+            </Button>
           </Grid>
         </Grid>
 
         <Grid
+          item
+          xs={12}
           sx={{
             display: { xs: "none", md: "flex" },
             width: "100%",
@@ -368,44 +222,45 @@ export default function CarouselForwardOnly() {
             boxShadow: "0px 19px 30px rgba(0, 0, 0, 0.25)",
           }}
         >
-          <Typography
-            sx={{
-              fontFamily: "Inter, sans-serif",
-              fontWeight: "bold",
-              display: "flex",
-              alignItems: "center",
-            }}
-            variant="h5"
-            component="h5"
-          >
-            Seu Chat 100% automatizado!
-          </Typography>
-
-          <Typography sx={{ maxWidth: "80%" }} variant="body1">
-            Você gostaria de ter em sua empresa um chat como este? que
-            automatiza seu atendimento e trás muito mais facilidade para o
-            fechamento da sua venda?
-          </Typography>
-
-          <Button
-            component="a"
-            href="https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Quero%20automatizar%20meu%20atendimento."
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-            sx={{
-              borderRadius: "24px",
-              background:
-                "linear-gradient(135deg, #db00ff, #6221a2) !important",
-              color: "#fff",
-              fontWeight: "bold",
-              textTransform: "none",
-              mt: 2,
-            }}
-          >
-            Agendar Reunião
-          </Button>
+          <Grid container sx={{ width: "100%", justifyContent: "center" }}>
+            {[
+              {
+                icon: <FacebookOutlinedIcon sx={{ fontSize: 42 }} />,
+                url: "https://www.facebook.com/profile.php?id=61560382723312",
+              },
+              {
+                icon: <LinkedInIcon sx={{ fontSize: 42 }} />,
+                url: "https://linkedin.com",
+              },
+              {
+                icon: <InstagramIcon sx={{ fontSize: 42 }} />,
+                url: "https://www.instagram.com/magmetasolucoes/",
+              },
+              {
+                icon: <WhatsAppIcon sx={{ fontSize: 42 }} />,
+                url: "https://api.whatsapp.com/send/?phone=5561981689203&text=Ol%C3%A1%2C%20equipe%20Magmeta%21%20%20Quero%20automatizar%20meu%20atendimento.",
+              },
+            ].map((item, idx) => (
+              <Grid
+                key={idx}
+                item
+                xs={6}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                <IconButton
+                  component="a"
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ p: 1 }}
+                >
+                  {item.icon}
+                </IconButton>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
+
         <PopupBlog />
       </Box>
     </Grid>
